@@ -1,0 +1,27 @@
+#menu-toggle {
+    display: none;
+}
+#menu-icon {
+    font-size: 24px;
+    cursor: pointer;
+}
+#menu {
+    display: none;
+}
+#menu-toggle:checked + #menu-icon + #menu {
+    display:block;
+}
+#menu ul {
+    list-style-type: none;
+    padding: 0;
+}
+#menu li {
+    padding:10px;
+}
+#menu a {
+    text-decoration: none;
+    color: black;
+}
+#menu a:hover {
+    background-color: blue;
+}

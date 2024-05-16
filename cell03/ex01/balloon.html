@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            border-radius: 1110px;
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            border: none;
+            cursor: pointer; /* Cursor ao passar por cima */
+            transition: width 0.3s, height 0.3s; /* Adiciona uma transição suave */
+        }
+        .botao{
+            background-color: red;
+            border: none; 
+            border-radius: 1110px;
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        function muda_cor_tamanho(element, isMouseOut) {
+            var currentSize = window.getComputedStyle(element).getPropertyValue('width');
+            var newSize;
+            var randomColor;
+
+            if (!isMouseOut) { // Se o mouse está sobre o balão
+                newSize = parseInt(currentSize) + 10; // Aumenta o tamanho em 10 pixels
+                randomColor = '#' + Math.floor(Math.random() * 16777215).toString(16); // Gera uma cor aleatória
+            } else { // Se o mouse saiu do balão
+                newSize = parseInt(currentSize) - 5; // Diminui o tamanho em 5 pixels
+                newSize = Math.max(newSize, 200); // Garante que o tamanho não seja menor que 200px
+            }
+
+            // Atualiza o tamanho do balão
+            element.style.width = newSize + 'px';
+            element.style.height = newSize + 'px';
+
+            if (!isMouseOut) { // Se o mouse está sobre o balão
+                document.body.style.backgroundColor = randomColor; // Altera a cor de fundo da página
+            }
+        }
+    </script>
+
+    <!-- Adiciona a função muda_cor_tamanho ao clicar no balão e ao sair dele -->
+    <div class="botao" onclick="muda_cor_tamanho(this, false)" onmouseout="muda_cor_tamanho(this, true)"></div>
+
+</body>
+</html>
